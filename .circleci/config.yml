@@ -34,6 +34,14 @@ commands:
           event: fail
           template: basic_fail_1
 
+  notify-slack:
+    description: notify in slack of any job failure.
+    steps:
+      - slack/notify:
+          channel: monitoring
+          event: fail
+          template: basic_fail_1       
+
   revert-migrations:
     description: Revert the last migration if successfully run in the current workflow.
     parameters:
@@ -76,6 +84,7 @@ jobs:
       - save_cache:
           paths: [frontend/node_modules]
           key: frontend-build
+      - notify-slack    
 
   build-backend:
     docker:
@@ -99,6 +108,7 @@ jobs:
       - save_cache:
           paths: [backend/node_modules]
           key: backend-build
+      - notify-slack     
 
   test-frontend:
     docker:
@@ -114,9 +124,7 @@ jobs:
             cd frontend
             npm i 
             npm run test    
-      # Checkout code from git
-      # Restore from cache
-      # Your job code here
+      - notify-slack 
                 
   test-backend:
     docker:
@@ -132,6 +140,7 @@ jobs:
             cd backend
             npm i 
             npm run test 
+      - notify-slack       
             
   scan-frontend:
     docker:
@@ -150,7 +159,8 @@ jobs:
           name: scan front-end dependencies
           command: |
             cd frontend
-            npm audit --audit-level=critical
+            npm audit --audit-level=critical 
+      - notify-slack
 
   scan-backend:
     docker:
@@ -169,7 +179,8 @@ jobs:
           name: scan backend-end dependencies
           command: |
             cd backend
-            # npm audit --audit-level=critical
+            # npm audit --audit-level=critical 
+      - notify-slack
 
   deploy-infrastructure:
     docker:
