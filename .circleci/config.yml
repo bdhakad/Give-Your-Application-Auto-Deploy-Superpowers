@@ -482,9 +482,7 @@ jobs:
       - run:
           name: Create CDN invalidation to pick new changes
           command: |
-            distributionId=${aws cloudformation describe-stacks --stack-name udapeople-cloudfront-update \ 
-              --query "Stacks[0].Outputs[?OutputKey=='WebpageCDN'].OutputValue" \  
-              --output text)
+            distributionId=$(aws cloudformation describe-stacks --stack-name udapeople-cloudfront-update --query "Stacks[0].Outputs[?OutputKey=='WebpageCDN'].OutputValue" --output text)
             aws cloudfront create-invalidation --distribution-id $distributionId --paths /    
       - run:
           name: Remove old stacks and files
