@@ -150,7 +150,7 @@ jobs:
           name: scan front-end dependencies
           command: |
             cd frontend
-          # npm audit --audit-level=critical
+            npm audit --audit-level=critical
 
   scan-backend:
     docker:
@@ -169,7 +169,7 @@ jobs:
           name: scan backend-end dependencies
           command: |
             cd backend
-          # npm audit --audit-level=critical
+            npm audit --audit-level=critical
 
   deploy-infrastructure:
     docker:

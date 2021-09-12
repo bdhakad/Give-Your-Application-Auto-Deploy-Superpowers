@@ -43,7 +43,7 @@
 
 # - name: Clone a github repository
 #   git:
-#     repo: https://github.com/bdhakad/cdond-c3-projectstarter.git
+#     repo: https://github.com/bdhakad/Give-Your-Application-Auto-Deploy-Superpowers.git
 #     dest: /home/ubuntu/web
 #     clone: yes
 #     update: yes        
