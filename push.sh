@@ -1,2 +1,2 @@
 #!/bin/bash
-git add . && git commit -m "update config.yml" && git push 
+git add . && git commit -m "add CI screenshots" && git push 
