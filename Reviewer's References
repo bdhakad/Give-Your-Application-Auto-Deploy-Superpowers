@@ -1,0 +1,4 @@
+1. presentation.pdf
+2. monitoring
+ - http://ec2-54-160-206-91.compute-1.amazonaws.com:9090/graph
+ - http://ec2-54-160-206-91.compute-1.amazonaws.com:9093/#/alerts
