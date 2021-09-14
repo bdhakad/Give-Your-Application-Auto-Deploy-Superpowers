@@ -1,0 +1,16 @@
+1. presentation.pdf
+
+2. monitoring
+ code: https://github.com/bdhakad/setup-monitoring-with-prometheus
+ urls:
+    - http://ec2-54-160-206-91.compute-1.amazonaws.com:9090/graph
+    - http://ec2-54-160-206-91.compute-1.amazonaws.com:9093/#/alerts
+
+3. App Info
+ code: https://github.com/bdhakad/Give-Your-Application-Auto-Deploy-Superpowers
+ front end url:
+    - cloudfront url: 
+    - direct url:
+ back end url:
+    - with elastic ip: 
+    - without elastic "backend_ip:      
